@@ -1,0 +1,46 @@
+html, body, #react-app {
+  height: 100%;
+}
+select {
+  display: block;
+}
+.margin {
+  &-auto {
+    margin: auto;
+  }
+}
+.title-with-actions {
+  display: flex;
+  > .actions {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    > * {
+      margin: auto;
+    }
+  }
+  > .title {
+    flex-grow: 1;
+  }
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  &-col {
+    flex-direction: column;
+  }
+  &-grow {
+    flex-grow: 1;
+  }
+}
+.clickable {
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+  }
+}
+.error-text {
+  font-weight: bold;
+  color: red;
+}
