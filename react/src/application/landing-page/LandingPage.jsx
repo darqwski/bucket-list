@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './landing-page.less';
 import useAppRequest from "../../hooks/useAppRequest";
 import Loading from "../../components/loading/Loading";
+import Footer from "../../application-components/footer/Footer";
 
 const ArticleItem = ({ item }) => {
      const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date } = item ;
@@ -41,20 +42,21 @@ const LandingPage = () => {
                 <h2>Rzeczy do zrobienia w ciągu życia</h2>
                 <div className="nav-border"/>
             </div>
-            <div className="flex" style={{ display: 'flex '}}>
+            <section className="flex" style={{ display: 'flex '}}>
                 <div className="rest-col">
                 </div>
-                <div className="flex-grow main-col">
+                <article className="flex-grow main-col">
                     {loading && <Loading/>}
                     {data?.map((item, index)=>(
                         <ArticleItem item={item} key={`ArticleItem-${index}`} />
                     ))}
-                </div>
+                </article>
                 <div className="rest-col">
                     <a>Link 1</a>
                     <a>Link 2</a>
                 </div>
-            </div>
+            </section>
+            <Footer/>
         </div>
     )
 }
