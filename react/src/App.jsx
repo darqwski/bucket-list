@@ -5,7 +5,8 @@ import routing from './config/routing';
 import { ROUTER_APP_PREFIX } from './config/app-config';
 import ModalManager from './context/ModalManager';
 import AppManager from './context/AppManager';
-console.log("LANDING")
+import './css/index.less';
+
 const App = () => {
 	return (
 		<AppManager>

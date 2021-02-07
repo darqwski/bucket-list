@@ -1,0 +1,42 @@
+.main-col {
+    max-width: 50%;
+}
+.rest-col {
+    width: 25%;
+}
+.short-article {
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 30%);
+        text-decoration: underline;
+    }
+    .preview-title {
+
+    }
+    .short-description {}
+    .details {
+        text-align: center;
+        background-color: #2F80ED;
+        color: #FFF;
+        text-decoration: none;
+
+        .cost {
+            font-weight: bold;
+        }
+        .date {
+            font-weight: bold;
+        }
+    }
+    .preview-photo {
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 10%;
+        max-height: 15rem;
+    }
+    .preview-credits {
+        margin-top: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        opacity: 0.8;
+    }
+}
