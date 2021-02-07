@@ -19,6 +19,9 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="flex-grow">
+                    <p className="col-title">Polityka prywatności</p>
+                    <p><a>Pliki Cookies</a></p>
+                    <p><a>Reklamy</a></p>
                 </div>
                 <div className="flex-grow">
                 </div>

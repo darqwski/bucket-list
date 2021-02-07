@@ -20,7 +20,7 @@ const Login = () => {
 		}).then(({ data, status })=>{
 			console.log(data,status);
 			if(status === 200){
-				window.location.href='../dashboard/';
+				window.location.href='dashboard/';
 			} else {
 				addSnackBar({ text: data.message });
 			}
@@ -31,15 +31,14 @@ const Login = () => {
 		<div className="login-panel">
 			<form className="card container" onSubmit={onSubmit}>
 				<div className="card-title">
-					<h3>Logowanie do QUIZ GROUP</h3>
+					<h3>Logowanie do Bucket-List</h3>
 				</div>
 				<div className="card-content">
 					<FormInput label="Login" name="login" />
 					<FormInput label="Password" name="password" type="password" />
 				</div>
 				<div className="card-action">
-					<Button type="submit" className="deep-purple darken-4">Zaloguj</Button>
-					<a className="btn-flat deep-purple-text darken-4" href="../register/">Zarejestruj</a>
+					<Button type="submit" className="blue-grey darken-2">Zaloguj</Button>
 				</div>
 			</form>
 		</div>

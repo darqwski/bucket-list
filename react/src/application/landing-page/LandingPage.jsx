@@ -9,7 +9,7 @@ const ArticleItem = ({ item }) => {
      const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date } = item ;
     return (
         <a href={`article?id=${articleId}`}>
-            <div className="short-article">
+            <article className="short-article">
                 <h3 className="title">{title}</h3>
                 <img className="preview-photo" src={previewPhoto} />
                 <p className="preview-credits">{previewCredits}</p>
@@ -24,7 +24,7 @@ const ArticleItem = ({ item }) => {
                         <p className="cost">{cost}</p>
                     </div>
                 </div>
-            </div>
+            </article>
         </a>
     )
 };
@@ -42,18 +42,12 @@ const LandingPage = () => {
                 <h2>Rzeczy do zrobienia w ciągu życia</h2>
                 <div className="nav-border"/>
             </div>
-            <section className="flex" style={{ display: 'flex '}}>
-                <div className="rest-col">
-                </div>
-                <article className="flex-grow main-col">
+            <section className="flex">
+                <div className="flex-grow main-col">
                     {loading && <Loading/>}
                     {data?.map((item, index)=>(
                         <ArticleItem item={item} key={`ArticleItem-${index}`} />
                     ))}
-                </article>
-                <div className="rest-col">
-                    <a>Link 1</a>
-                    <a>Link 2</a>
                 </div>
             </section>
             <Footer/>
