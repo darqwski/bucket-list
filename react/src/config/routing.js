@@ -4,6 +4,7 @@ import ArticlePage from "../application/article/ArticlePage";
 import Dashboard from "../application/administration/dashboard/Dashboard";
 import ManageArticles from "../application/administration/articles/ManageArticles";
 import AddArticlePage from "../application/administration/articles/add/AddArticlePage";
+import EditArticlePage from "../application/administration/articles/edit/EditArticlePage";
 
 export default [
 	{
@@ -25,6 +26,10 @@ export default [
 		path: 'administration/articles/add',
 		component: AddArticlePage,
 		exact: true,
+	},
+	{
+		path: 'administration/articles/edit/',
+		component: EditArticlePage,
 	},
 	{
 		path: '',

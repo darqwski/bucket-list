@@ -9,6 +9,7 @@
             if(isset($_GET['newest'])){
                 echo (new DataStream(PDOController::getCommand("
                     SELECT title,shortDescription, previewPhoto, previewCredits, articleId, cost, date FROM articles
+                    WHERE confirmed = 1
                 ")))->toJson();
             }
             if(isset($_GET['id'])){

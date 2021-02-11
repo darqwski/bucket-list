@@ -2,3 +2,5 @@
 /.build/.env.sh
 /.build/template/
 /.build/ssh_actions.sh
+/react/build
+/react/node_modules
