@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { IArticleCreatorRowTitle } from './types';
 
-const ArticleCreatorRowTitle = ({ articleSection, updateFormSection }) => {
+const ArticleCreatorRowTitle: React.FC<IArticleCreatorRowTitle> = ({ articleSection, updateFormSection }) => {
 	return (
 		<div>
 			<label> Miejsce na podtytuł </label>
@@ -9,7 +9,5 @@ const ArticleCreatorRowTitle = ({ articleSection, updateFormSection }) => {
 		</div>
 	);
 };
-
-ArticleCreatorRowTitle.propTypes = {};
 
 export default ArticleCreatorRowTitle;

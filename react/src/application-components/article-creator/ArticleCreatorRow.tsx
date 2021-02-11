@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ArticleCreatorRowTitle from './ArticleCreatorRowTitle';
 import ArticleCreatorRowContent from './ArticleCreatorRowContent';
 import ArticleCreatorRowImage from './ArticleCreatorRowImage';
+import { IArticleCreatorRow } from './types';
 
-const ArticleCreatorRow = ({ articleSection, updateFormSection  }) => {
-	console.log(articleSection);
+const ArticleCreatorRow: React.FC<IArticleCreatorRow> = ({ articleSection, updateFormSection  }) => {
+
 	return (
 		<div className="col s12">
 			<div className="row">
@@ -39,8 +39,5 @@ const ArticleCreatorRow = ({ articleSection, updateFormSection  }) => {
 		</div>
 	);
 };
-
-
-ArticleCreatorRow.propTypes = {};
 
 export default ArticleCreatorRow;

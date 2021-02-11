@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useFormDataContext } from '../../context/FormDataManager';
-import ArticleCreatorRow from "./ArticleCreatorRow";
+import ArticleCreatorRow from './ArticleCreatorRow';
+import { IArticleCreator, IArticleSection } from './types';
 
-const ArticleCreator = () => {
-	const { formData, setField } = useFormDataContext();
-	const [ articleSections, setArticleSections] = useState({ 1: { id: 1, type: 'title',  } });
+const ArticleCreator: React.FC<IArticleCreator> = () => {
+	const [ articleSections, setArticleSections] = useState<{[id: number]: IArticleSection}>({ 1: { id: 1, type: 'title'  } });
 
-	const updateFormSection = (articleId, inputName, { target: { value } }) => {
+	const updateFormSection = (articleId: number, inputName: string, { target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
 		setArticleSections(articleSections=>({
 			...articleSections,
 			[articleId]:{
@@ -15,8 +13,8 @@ const ArticleCreator = () => {
 			} }));
 	};
 	const addFormSection = () => {
-		const maxKey = Math.max(...Object.keys(articleSections)) + 1;
-		setArticleSections(articleSections => ({ ...articleSections, [maxKey]: { id: maxKey, type: 'text' } }));
+		const maxKey = Math.max(...Object.keys(articleSections).map(i=>+i)) + 1;
+		setArticleSections(articleSections => ({ ...articleSections, [maxKey]: { id: maxKey, type: 'title' } }));
 	};
 
 	console.log(articleSections);
@@ -33,8 +31,5 @@ const ArticleCreator = () => {
 		</div>
 	);
 };
-
-
-ArticleCreator.propTypes = {};
 
 export default ArticleCreator;

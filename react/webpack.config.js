@@ -8,7 +8,7 @@ module.exports = {
 		ignored: /node_modules/
 	},
 	resolve: {
-		extensions: ['.json', '.js', '.jsx'],
+		extensions: ['.json', '.js', '.jsx', '.ts', '.tsx'],
 	},
 	entry: path.resolve(__dirname, 'src', 'index.jsx'),
 	output: {
@@ -36,7 +36,11 @@ module.exports = {
 			options: {
 				presets: ['@babel/preset-env', '@babel/preset-react']
 			}
-		}
+		},{
+			test: /\.tsx?$/,
+			use: 'ts-loader',
+			exclude: /node_modules/,
+		},
 		]
 	},
 	plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') })],
