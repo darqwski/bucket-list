@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import FormDataManager, { useFormDataContext } from '../../../../context/FormDataManager';
-import WithLabel from '../../../../components/forms/WithLabel';
 import FormInput from '../../../../components/forms/FormInput';
 import './add-article.less';
 import appRequest from '../../../../utils/appRequest';
@@ -45,7 +43,7 @@ const AddArticlePage = () => {
 			</div>
 			<div className="card row">
 				<div className="col s12 card-title">Treść artykułu</div>
-				<ArticleCreator name="article"  />
+				<ArticleCreator name="article" />
 			</div>
 			<div className="card row">
 				<div className="col s12 card-title">Szczegóły</div>
