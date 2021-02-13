@@ -1,6 +1,13 @@
 html, body, #react-app {
   height: 100%;
 }
+@color1: #48ACF0;
+@color2: #594236;
+@color3: #6F584B;
+@color4: #93A3BC;
+@color5: #CCDDE2;
+@shadow1: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .2) ;
+@shadow2: 0 8px 17px 2px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
 select {
   display: block;
 }
@@ -43,4 +50,22 @@ select {
 .error-text {
   font-weight: bold;
   color: red;
+}
+
+.my-tabs {
+  display: flex;
+}
+.my-tab {
+  background-color: @color2;
+  color: white;
+  padding:1rem;
+  text-align: center;
+  flex-grow: 1;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  &-active {
+    font-weight: bold;
+  }
 }

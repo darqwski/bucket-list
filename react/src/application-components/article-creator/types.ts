@@ -1,14 +1,15 @@
-import React from 'react';
-
 export interface IArticle {
 
 }
 export interface IArticleCreator {
-
+    initialArticles: string
 }
 export interface IArticleCreatorRow {
     articleSection: IArticleSection,
-    updateFormSection(id: number, name: string, event: IEventTargetValue): void
+    updateFormSection(id: number, name: string, event: IEventTargetValue): void;
+    removeRow(id: number): void;
+    moveUp(id: number): void;
+    moveDown(id: number): void;
 }
 
 export interface IArticleCreatorRowContent extends IArticleCreatorRow {

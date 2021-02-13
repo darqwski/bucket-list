@@ -25,7 +25,7 @@
             WHERE articleId=:articleId
                 ",
             [
-                "articleId"=>$data["title"],
+                "articleId"=>$data["articleId"],
                 "title"=>$data["title"],
                 "shortDescription"=>$data["shortDescription"],
                 "previewPhoto"=>$data["previewPhoto"],
