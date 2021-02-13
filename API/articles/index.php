@@ -8,13 +8,16 @@
         case "GET":
             if(isset($_GET['newest'])){
                 echo (new DataStream(PDOController::getCommand("
-                    SELECT title,shortDescription, previewPhoto, previewCredits, articleId, cost, date FROM articles
+                    SELECT title,shortDescription, previewPhoto, previewCredits, articleId, cost, date, creationDate, users.login FROM articles
+                    INNER JOIN users ON articles.authorId = users.userId
                     WHERE confirmed = 1
                 ")))->toJson();
             }
             if(isset($_GET['id'])){
                 echo (new DataStream(PDOController::getCommand("
-                    SELECT * FROM articles WHERE articleId = :articleId
+                    SELECT articles.*, users.login FROM articles 
+                    INNER JOIN users ON articles.authorId = users.userId
+                    WHERE articleId = :articleId
                 ", ['articleId'=>$_GET['id']])[0]))->toJson();
             }
 

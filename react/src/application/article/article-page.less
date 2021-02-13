@@ -1,4 +1,19 @@
 .article {
+   &>img {
+      max-width: 100%;
+   }
+   &-details {
+      font-size: 0.8rem;
+      border-bottom: 3px solid #2F80ED;
+      padding: 1rem;
+      &>span {
+         margin-right: 0.5rem;
+      }
+      &>span.value {
+         font-weight: bold;
+      }
+   }
+   margin: auto;
    &-subtitle {
       padding-left: 2rem;
       border-bottom: 3px solid #2F80ED;
@@ -17,5 +32,25 @@
       display: block;
       margin: auto;
       max-width: 100%;
+   }
+}
+@media only screen and (max-width: 399px) {
+   .article {
+      width: 95%;
+   }
+}
+@media only screen and (min-width: 400px) {
+   .article {
+      width: 75%;
+   }
+}
+@media only screen and (min-width: 800px) {
+   .article {
+      width: 60%;
+   }
+}
+@media only screen and (min-width: 1200px) {
+   .article {
+      width: 50%;
    }
 }

@@ -10,6 +10,8 @@
     color: white;
 }
 .short-article {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     text-decoration: none;
     color: black;
     &:hover {
@@ -51,5 +53,20 @@
         font-size: 0.8rem;
         font-weight: 700;
         opacity: 0.8;
+    }
+}
+@media only screen and (min-width: 400px) {
+    .short-article {
+        width: 75%;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .short-article {
+        width: 60%;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .short-article {
+        width: 50%;
     }
 }

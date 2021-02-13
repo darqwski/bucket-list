@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const ArticleItem = ({ item }) => {
-	const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date } = item ;
+	const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date, creationDate, login } = item ;
+
 	return (
 		<a href={`article?id=${articleId}`}>
-			<article className="short-article">
+			<article className="card short-article">
+				<div>Dodano {creationDate} przez {login}</div>
 				<h3 className="title">{title}</h3>
 				<img className="preview-photo" src={previewPhoto} />
 				<p className="preview-credits">{previewCredits}</p>
