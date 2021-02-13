@@ -5,14 +5,14 @@ export const AppContext = createContext({});
 
 export const useAppContext = () => useContext(AppContext);
 
-export const AppManager = ({ children }) => {
+export const AppManager = ({ children, appData }) => {
 	const { serverData: { login, admin } } = window;
 	const isLogged = () => !!login;
 	const isAdmin = () => !!admin;
 
 	return (
 		<AppContext.Provider value={{
-			isLogged, login, isAdmin
+			isLogged, login, isAdmin, appData
 		}}>
 			{children}
 		</AppContext.Provider>

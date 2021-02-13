@@ -62,4 +62,9 @@ class DataStream
     public function toJson(){
         return json_encode($this->array);
     }
+
+    public function singleIndex($index){
+        $this->array = $this->array[$index];
+        return $this;
+    }
 }

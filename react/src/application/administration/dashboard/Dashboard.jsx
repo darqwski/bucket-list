@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React from 'react';
 
 const Dashboard = () => {
-    return (
-        <div>
-            <a href="../articles/"> Zarządzanie artykułami</a>
-        </div>
-    )
-}
+	return (
+		<div>
+			<a href="../articles/"> Zarządzanie artykułami</a>
+			<a href="../info-pages/"> Zarządzanie stronami informacyjnymi</a>
+		</div>
+	);
+};
 
-Dashboard.propTypes = {}
+Dashboard.propTypes = {};
 
 export default Dashboard;

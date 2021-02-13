@@ -3,7 +3,7 @@ import appRequest from '../utils/appRequest';
 
 export default ({ name = 'data', url, method, data, deps = [] }) => {
 	const [responseData, setResponseData] = useState();
-	const [loading, setLoading] = useState();
+	const [loading, setLoading] = useState(true);
 	const [isRefresh, setRefresh] = useState(false);
 	const [responseCode, setResponseCode] = useState(0);
 

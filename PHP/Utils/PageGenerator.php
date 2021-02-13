@@ -1,5 +1,6 @@
 <?php
 define("BUILD_PATH","bucket-list/react/build/");
+include_once "$_SERVER[DOCUMENT_ROOT]/bucket-list/PHP/Utils/InitialData.php";
 session_start();
 
 function clearURLParams(){
@@ -35,6 +36,7 @@ function generatePage($path = '/'){
                 'admin' => isset($_SESSION['adminId']) ? 1 : 0
         ])."
         </script>
+        ".getInitialData()."
         <script src='".$path.BUILD_PATH."bundle.js'></script>
         <script src='".$path.BUILD_PATH."main.bundle.js'></script>
     </body>

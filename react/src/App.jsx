@@ -7,9 +7,9 @@ import ModalManager from './context/ModalManager';
 import AppManager from './context/AppManager';
 import './css/index.less';
 
-const App = () => {
+const App = ({ appData }) => {
 	return (
-		<AppManager>
+		<AppManager appData={appData}>
 			<ModalManager>
 				<SnackBarManager>
 					<Router>

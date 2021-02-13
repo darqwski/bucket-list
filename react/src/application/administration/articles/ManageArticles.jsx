@@ -67,7 +67,6 @@ const ManageArticles = () => {
 		<div>
 			<a href="add"> Dodaj artykuł </a>
 			<ArticlesTable />
-
 		</div>
 	);
 };
