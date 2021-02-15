@@ -21,7 +21,7 @@ const EditInfoPage = () => {
 
 	const onSave = () => {
 		appRequest({
-			url: '/API/manage-info-pages/add-info-page/',
+			url: '/API/manage-info-pages/edit-info-page/',
 			method: 'POST',
 			data: {
 				...formData,
@@ -29,12 +29,11 @@ const EditInfoPage = () => {
 			}
 		}).then(({ data: { message } })=> {
 			addSnackBar({ text: message });
-			window.location.href='../';
 		});
 	};
 	return (
 		<div className="container">
-			<h3>Dodawanie nowej strony informacyjnej do stopki</h3>
+			<h3>Edytowanie strony informacyjnej do stopki</h3>
 			<div className="card">
 				<h4>Dane do stopki</h4>
 				<FormInput name="title" label="Nazwa" />
@@ -43,11 +42,25 @@ const EditInfoPage = () => {
 			<div className="card">
 				<h4>Dane strony</h4>
 				<label>
-					<input type="radio" className="filled-in" name="type" value="html" onChange={setField('type')}/>
+					<input
+						type="radio"
+						className="filled-in"
+						name="type"
+						value="html"
+						onChange={setField('type')}
+						checked={formData.type ==='html'}
+					/>
 					<span>Zwykła strona HTML</span>
 				</label>
 				<label>
-					<input type="radio" className="filled-in" name="type" value="jsx" onChange={setField('type')}/>
+					<input
+						type="radio"
+						className="filled-in"
+						name="type"
+						value="jsx"
+						onChange={setField('type')}
+						checked={formData.type ==='jsx'}
+					/>
 					<span>Specjalna strona w repozytorium</span>
 				</label>
 				{(formData.type === 'jsx') ? (
@@ -58,7 +71,7 @@ const EditInfoPage = () => {
 						<div className="article-preview"/>
 					</div>
 				) : null}
-				<a className="btn light-blue" onClick={onSave}> Dodaj artykuł </a>
+				<a className="btn light-blue" onClick={onSave}> Zapisz stronę informacyjną </a>
 			</div>
 		</div>
 	);
