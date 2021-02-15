@@ -4,7 +4,7 @@ include_once "$_SERVER[DOCUMENT_ROOT]/bucket-list/PHP/Utils/DataStream.php";
 
 function getFooterContent(){
     $jsonData = (new DataStream())
-        ->getFromQuery("SELECT footerColumns, title, infoPageId FROM info_pages")
+        ->getFromQuery("SELECT footerColumns, title, infoPageId FROM info_pages WHERE confirmed = 1")
         ->groupBy("footerColumns")
         ->toJson();
 

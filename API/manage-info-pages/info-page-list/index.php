@@ -12,7 +12,7 @@
     function getInfoPagesList(){
         return (
             (new DataStream())
-                ->getFromQuery("SELECT title, infoPageId, footerColumns FROM info_pages")
+                ->getFromQuery("SELECT title, infoPageId, footerColumns, confirmed FROM info_pages")
                 ->toJson()
         );
     }

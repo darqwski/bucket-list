@@ -10,14 +10,18 @@
     }
     $method = RequestAPI::getMethod();
 
-    function confirmArticle(){
+    function hideInfoPage(){
         $data = RequestAPI::getJSON();
-        PDOController::putCommand("UPDATE articles SET confirmed = 1 WHERE articleId=:articleId", ["articleId"=>$data['articleId']]);
-        return Response::message("Article is now visible for people");
+        PDOController::putCommand(
+            "UPDATE info_pages SET confirmed = 0 WHERE infoPageId =:infoPageId",
+            ["infoPageId"=>$data['infoPageId']]
+        );
+
+        return Response::message("Info page is now not visible for people");
     }
 
     switch ($method){
         case "POST":
-            echo confirmInfoPage();
+            echo hideInfoPage();
             break;
     }

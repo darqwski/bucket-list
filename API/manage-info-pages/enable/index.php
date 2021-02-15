@@ -10,10 +10,10 @@
     }
     $method = RequestAPI::getMethod();
 
-    function confirmArticle(){
+    function confirmInfoPage(){
         $data = RequestAPI::getJSON();
-        PDOController::putCommand("UPDATE articles SET confirmed = 1 WHERE articleId=:articleId", ["articleId"=>$data['articleId']]);
-        return Response::message("Article is now visible for people");
+        PDOController::putCommand("UPDATE info_pages SET confirmed = 1 WHERE infoPageId=:infoPageId", ["infoPageId"=>$data['infoPageId']]);
+        return Response::message("Info page is now visible for people");
     }
 
     switch ($method){
