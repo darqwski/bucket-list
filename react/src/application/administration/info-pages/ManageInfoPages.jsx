@@ -4,6 +4,7 @@ import useAppRequest from '../../../hooks/useAppRequest';
 import Loading from '../../../components/loading/Loading';
 import appRequest from "../../../utils/appRequest";
 import {useSnackbar} from "../../../context/SnackBarManager";
+import NavBar from "../../../application-components/admin-nav-bar/NavBar";
 
 const InfoPagesTable = () => {
 	const { infoPages, loading , refresh } = useAppRequest({
@@ -34,7 +35,7 @@ const InfoPagesTable = () => {
 	};
 
 	return loading ? <Loading/> : (
-		<table>
+		<table className="info-pages-table table card">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -71,7 +72,13 @@ const ManageInfoPages = () => {
 
 	return (
 		<div>
-			<a href="add">Dodaj nową stronę informacyjną</a>
+			<NavBar title="Zarządzanie stronami informacyjnymi" />
+			<div className="manage-header">
+				<a href="add" className="btn light-blue white-text">
+					<span>Dodaj nową stronę informacyjną</span>
+					<i className="material-icons">add</i>
+				</a>
+			</div>
 			<InfoPagesTable />
 		</div>
 	);

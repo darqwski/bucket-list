@@ -12,6 +12,7 @@ const InfoPage = () => {
 	});
 	const [component, setComponent] = useState('');
 	useEffect(()=>{
+		console.log(data?.type, data?.content);
 		if(!(data?.type)){
 			return;
 		}

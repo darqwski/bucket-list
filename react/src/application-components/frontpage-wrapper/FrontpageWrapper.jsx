@@ -8,7 +8,7 @@ const FrontPageWrapper = ({ children }) => {
 			<div className="nav-bar">
 				<h1> My bucket list</h1>
 				<h2>Rzeczy do zrobienia w ciągu życia</h2>
-				<div className="nav-border"/>
+				<div className="card nav-border"/>
 			</div>
 			{children}
 			<Footer/>

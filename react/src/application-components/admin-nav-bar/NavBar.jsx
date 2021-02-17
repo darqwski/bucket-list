@@ -14,7 +14,7 @@ const NavBar = ({ title }) => {
 					<a className="my-nav-link" href={`/${APP_NAME}administration/info-pages/`}>Strony informacyjny</a>
 				</div>
 				<div className="my-nav-title">{title}</div>
-				<div className="flex-grow">
+				<div className="flex-grow my-nav-right">
                     Zalogowany jako {userData.login}
 				</div>
 			</div>

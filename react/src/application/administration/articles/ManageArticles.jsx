@@ -4,7 +4,9 @@ import useAppRequest from '../../../hooks/useAppRequest';
 import Loading from '../../../components/loading/Loading';
 import { useSnackbar } from '../../../context/SnackBarManager';
 import appRequest from '../../../utils/appRequest';
-import NavBar from "../../../application-components/admin-nav-bar/NavBar";
+import NavBar from '../../../application-components/admin-nav-bar/NavBar';
+import './manage-articles.less';
+import IconButton from '../../../components/button/IconButton';
 
 const ArticlesTable = () => {
 	const { articleList, loading , refresh } = useAppRequest({
@@ -33,7 +35,7 @@ const ArticlesTable = () => {
 		});
 	};
 	return loading ? <Loading/> : (
-		<table>
+		<table className="article-table card table">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -67,7 +69,12 @@ const ManageArticles = () => {
 	return (
 		<div>
 			<NavBar title="Zarządzanie artykułami"/>
-			<a href="add"> Dodaj artykuł </a>
+			<div className="manage-header">
+				<a href="add" className="btn light-blue white-text">
+					<span>Dodaj nowy artykuł</span>
+					<i className="material-icons">add</i>
+				</a>
+			</div>
 			<ArticlesTable />
 		</div>
 	);
