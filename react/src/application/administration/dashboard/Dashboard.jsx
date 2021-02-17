@@ -1,10 +1,10 @@
 import React from 'react';
+import NavBar from "../../../application-components/admin-nav-bar/NavBar";
 
 const Dashboard = () => {
 	return (
 		<div>
-			<a href="../articles/"> Zarządzanie artykułami</a>
-			<a href="../info-pages/"> Zarządzanie stronami informacyjnymi</a>
+			<NavBar/>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import useAppRequest from '../../../hooks/useAppRequest';
 import Loading from '../../../components/loading/Loading';
 import { useSnackbar } from '../../../context/SnackBarManager';
 import appRequest from '../../../utils/appRequest';
+import NavBar from "../../../application-components/admin-nav-bar/NavBar";
 
 const ArticlesTable = () => {
 	const { articleList, loading , refresh } = useAppRequest({
@@ -65,6 +66,7 @@ const ArticlesTable = () => {
 const ManageArticles = () => {
 	return (
 		<div>
+			<NavBar title="Zarządzanie artykułami"/>
 			<a href="add"> Dodaj artykuł </a>
 			<ArticlesTable />
 		</div>

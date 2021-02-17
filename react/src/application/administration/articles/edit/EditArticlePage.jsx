@@ -1,12 +1,13 @@
 import React from 'react';
 import FormDataManager, { useFormDataContext } from '../../../../context/FormDataManager';
 import FormInput from '../../../../components/forms/FormInput';
-import './edit-article.less';
 import appRequest from '../../../../utils/appRequest';
 import useAppRequest from '../../../../hooks/useAppRequest';
 import Loading from '../../../../components/loading/Loading';
 import { useSnackbar } from '../../../../context/SnackBarManager';
 import ArticleCreator from '../../../../application-components/article-creator/ArticleCreator';
+import NavBar from '../../../../application-components/admin-nav-bar/NavBar';
+import './edit-article.less';
 
 const articleId = (new URL(location.href)).searchParams.get('id');
 
@@ -26,10 +27,12 @@ const EditArticlePage = () => {
 
 	return (
 		<div>
+			<NavBar title="Edycja artykułu"/>
 			<h3>Edycja artykułu</h3>
 			<div className="row">
 				<div className="col s3" />
-				<div className="form-section col s6">
+				<div className="card form-section col s6">
+					<div className="card-title">Informacje o artykule</div>
 					<FormInput label="Tytuł artykułu" name="title"/>
 					<FormInput label="Krótki opis" name="shortDescription"/>
 					<FormInput label="Zdjęcie" name="previewPhoto"/>
@@ -45,13 +48,20 @@ const EditArticlePage = () => {
 			</div>
 			<div className="row">
 				<div className="col s3" />
-				<div className="form-section col s6">
+				<div className="form-section card col s6">
+					<div className="card-title">Szczegóły artykułu</div>
 					<FormInput label="Cena" name="cost"/>
 					<FormInput label="Data" type="date" name="date"/>
 				</div>
 				<div className="col s3" />
 			</div>
-			<button className="btn-flat light-blue darken-2" onClick={onSave}>Zapisz artykuł</button>
+			<div className="row card">
+				<div className="col s3" />
+				<div className="col s6">
+					<button className="btn btn-large light-blue darken-2" onClick={onSave}>Zapisz artykuł</button>
+				</div>
+				<div className="col s3" />
+			</div>
 		</div>
 	);
 };
