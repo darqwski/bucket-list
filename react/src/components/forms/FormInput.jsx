@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useFormDataContext } from '../../context/FormDataManager';
+import { useFormDataContext } from '../../context/form-data-manager/FormDataManager';
 import WithLabel from './WithLabel';
 
 const FormInput = ({ label, name, white, ...rest }) => {

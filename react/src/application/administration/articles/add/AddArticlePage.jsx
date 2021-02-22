@@ -1,5 +1,5 @@
 import React from 'react';
-import FormDataManager, { useFormDataContext } from '../../../../context/FormDataManager';
+import FormDataManager, { useFormDataContext } from '../../../../context/form-data-manager/FormDataManager';
 import FormInput from '../../../../components/forms/FormInput';
 import './add-article.less';
 import appRequest from '../../../../utils/appRequest';

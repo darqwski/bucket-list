@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ArticleCreatorRow from './ArticleCreatorRow';
 import { IArticleCreator, IArticleSection } from './types';
-import './article-creator.less';
 // @ts-ignore
-import { useFormDataContext } from '../../context/FormDataManager';
+import { useFormDataContext } from '../../context/form-data-manager/FormDataContext';
+import './article-creator.less';
+
 const ArticleCreator: React.FC<IArticleCreator> = ({ initialArticles }) => {
 	const initialArticleSections = initialArticles ? (
 		// @ts-ignore

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import useAppRequest from '../../../../hooks/useAppRequest';
 import Loading from '../../../../components/loading/Loading';
-import FormDataManager, { useFormDataContext } from '../../../../context/FormDataManager';
+import FormDataManager, { useFormDataContext } from '../../../../context/form-data-manager/FormDataManager';
 import { useSnackbar } from '../../../../context/SnackBarManager';
 import appRequest from '../../../../utils/appRequest';
 import FormInput from '../../../../components/forms/FormInput';

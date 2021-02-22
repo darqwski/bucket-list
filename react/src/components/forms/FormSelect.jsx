@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Select from './Select';
 import WithLabel from './WithLabel';
-import { useFormDataContext } from '../../context/FormDataManager';
+import { useFormDataContext } from '../../context/form-data-manager/FormDataManager';
 
 const FormSelect = ({ data, label, name }) => {
 	const { setField, formData: { [name]: value } } = useFormDataContext();
