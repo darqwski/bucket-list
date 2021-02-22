@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './comments.less';
 import SingleComment from './SingleComment';
 import CommentAddForm from './CommentAddForm';
@@ -13,13 +13,22 @@ interface IComments {
 
 
 const Comments: React.FC<IComments> = ({ articleId }) => {
-	const { data, loading, refresh } = useAppRequest({ url: `/API/comments?articleId=${articleId}` });
-	const comments: IComment[] = data;
+	const [page, setPage] = useState(0);
+	const [summarizedComments, setSummarizedComments] = useState<IComment[]>([]);
+	const { data, loading, refresh } = useAppRequest({ url: `/API/comments?articleId=${articleId}&page=${page}`, deps: [page] });
+	useEffect(()=>{
+		if(data && !loading){
+			setSummarizedComments([...summarizedComments, ...data]);
+		}
+	}, [data, loading])
+
 	return (
 		<div className="card container comments">
 			<h5>Komentarze</h5>
-			{loading ? <Loading /> : comments && comments.map((comment,i)=><SingleComment key={`SingleComment-${i}`} comment={comment}/>)}
+			{loading ? <Loading /> : summarizedComments && summarizedComments.map((comment,i)=><SingleComment key={`SingleComment-${i}`} comment={comment}/>)}
 			{<CommentAddForm articleId={articleId} refresh={refresh} />}
+			{data && data.length === 25 && <a onClick={()=>setPage(page+1)}>Więcej komentarzy</a>}
+			{data && data.length !== 25 && <p>To wszystkie komentarze</p>}
 		</div>
 	);
 };

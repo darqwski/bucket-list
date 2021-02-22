@@ -2,23 +2,31 @@ import React, { FormEvent } from 'react';
 import FormDataManager, { useFormDataContext } from '../../context/form-data-manager/FormDataManager';
 import FormInput from '../../components/forms/FormInput';
 import appRequest from '../../utils/appRequest';
-
-interface ICommentAddForm {
-	articleId: string | number;
-	refresh():void;
-}
+// @ts-ignore
+import { useSnackbar } from '../../context/SnackBarManager';
+import { ICommentAddForm } from './types';
 
 const CommentAddForm: React.FC<ICommentAddForm> = ({ articleId, refresh }) => {
+	const { addSnackBar } = useSnackbar();
 	const { formData: { text }, clearForm } = useFormDataContext();
 	const sendComment = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		if(text === '') {
+			return;
+		}
 		appRequest({
 			method: 'POST',
 			url: '/API/comments/',
 			data: { text, articleId }
-		}).then(()=>{
+		}).then(({ data: { message }, status })=>{
+			if(status !== 200){
+				addSnackBar({ text: message });
+			} else {
+				refresh();
+			}
 			clearForm();
-			refresh();
+		}).catch((error)=>{
+			console.log(error);
 		});
 	};
 	return (
@@ -34,8 +42,11 @@ const CommentAddForm: React.FC<ICommentAddForm> = ({ articleId, refresh }) => {
 	);
 };
 
-export default ({ articleId, refresh }: { articleId: string|number, refresh():void })=>(
+const CommentAddFormWithContext = ({ articleId, refresh }: { articleId: string|number, refresh():void })=>(
 	<FormDataManager initialData={{}}>
 		<CommentAddForm articleId={articleId} refresh={refresh} />
 	</FormDataManager>
 );
+
+
+export default CommentAddFormWithContext;

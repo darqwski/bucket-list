@@ -6,15 +6,17 @@ const SingleComment: React.FC<ISingleComment> = ({ comment }) => {
 	return (
 		<div className="single-comment">
 			<div className="single-comment-author">
-				{temporary ? 'Anonimowy': firstName && lastName ? `${firstName} ${login}` : login}
+				{temporary ? 'Anonimowy': firstName && lastName ? `${firstName} ${lastName}` : login}
 			</div>
 			<div className="flex-grow">
 				<div className="flex flex-grow">
 					<div className="flex-grow single-comment-text">{text}</div>
-					<div className="single-comment-marks">
-						<span>{pluses}</span>
-						<span>{minuses}</span>
-					</div>
+					{false &&
+						<div className="single-comment-marks">
+							<span className="green-text">{pluses}</span>
+							<span className="red-text ">{minuses}</span>
+						</div>
+					}
 				</div>
 				<div className="single-comment-date">{datetime}</div>
 			</div>

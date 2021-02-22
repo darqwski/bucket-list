@@ -11,3 +11,7 @@ export interface IComment {
 export interface ISingleComment {
     comment: IComment
 }
+export interface ICommentAddForm {
+    articleId: string | number;
+    refresh():void;
+}
