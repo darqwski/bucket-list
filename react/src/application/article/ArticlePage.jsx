@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Loading from '../../components/loading/Loading';
 import useAppRequest from '../../hooks/useAppRequest';
 import './article-page.less';
-import NavBar from '../../application-components/nav-bar/NavBar';
-import Footer from '../../application-components/footer/Footer';
 import FrontPageWrapper from '../../application-components/frontpage-wrapper/FrontpageWrapper';
+import Comments from '../../application-components/comments/Comments';
 
 const SingleArticleSection = ({ articleSection }) => {
 	return (
@@ -18,7 +16,7 @@ const SingleArticleSection = ({ articleSection }) => {
 			)}
 			{ articleSection.type === 'image' &&  (
 				<div className="article-image-container">
-					<img className="article-image" src={articleSection.src} />
+					<img className="article-image" src={articleSection.src} alt="img" />
 					<p className="article-credits">{articleSection.credits}</p>
 				</div>
 			)}
@@ -36,7 +34,7 @@ const ArticlePage = () => {
 	return (
 		<FrontPageWrapper>
 			<div className="row">
-				<article className="article card">
+				<article className="container article card">
 					<div className="article-details">
 						<span>Dodano</span>
 						<span className="value"> {creationDate}</span>
@@ -45,11 +43,14 @@ const ArticlePage = () => {
 					</div>
 					<h4>{title}</h4>
 					<p>{shortDescription}</p>
-					<img src={previewPhoto} />
+					<img src={previewPhoto} alt="img" />
 					{loading ? <Loading/> : (
-						article && JSON.parse(article).map((articleSection)=><SingleArticleSection articleSection={articleSection} />)
+						article && JSON.parse(article).map((articleSection, index)=>(
+							<SingleArticleSection key={`SingleArticleSection-${index}`} articleSection={articleSection} />
+						))
 					)}
 				</article>
+				<Comments articleId={articleId} />
 			</div>
 		</FrontPageWrapper>
 	);

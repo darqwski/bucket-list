@@ -10,5 +10,6 @@ export const FormDataContext =createContext<IFormDataContext>({
 	},
 	clearErrors(): void {
 	},
-	errorMessages: [],formData: {},setFormData:(data)=> data
+	errorMessages: [],formData: {},setFormData:(data)=> data,
+	clearForm(): void {}
 });

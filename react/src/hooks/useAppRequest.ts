@@ -1,7 +1,19 @@
 import { useEffect, useState } from 'react';
 import appRequest from '../utils/appRequest';
-
-export default ({ name = 'data', url, method, data, deps = [] }) => {
+export interface IUseAppRequestProps {
+	url: string,
+	method?: 'POST' | 'GET' | 'PUT' | 'DELETE',
+	data?: any,
+	name?: string,
+	deps?: any[]
+}
+export interface IUseAppRequestData {
+	refresh(): void;
+	loading: boolean;
+	responseCode: number;
+	data: any
+}
+export default ({ name = 'data', url, method, data, deps = [] }: IUseAppRequestProps): IUseAppRequestData => {
 	const [responseData, setResponseData] = useState();
 	const [loading, setLoading] = useState(true);
 	const [isRefresh, setRefresh] = useState(false);
@@ -20,6 +32,7 @@ export default ({ name = 'data', url, method, data, deps = [] }) => {
 
 	return {
 		[name]: responseData,
+		data: responseData,
 		refresh,
 		loading,
 		responseCode

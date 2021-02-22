@@ -14,6 +14,8 @@ class PDOController
         if(PDOController::$db == null){
             try {
                 PDOController::$db = new PDO(TEXT, LOGIN, PASSWORD);
+                PDOController::$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
             } catch (PDOException $e) {
                 print "Failed to connect database!: " . $e->getMessage() . "<br/>";
             }
@@ -59,7 +61,11 @@ class PDOController
         }
         return $result;
     }
-
+    /**
+     * @param $command
+     * @param array $params
+     * @return $id od just created object
+     */
     static function insertCommand($command, $params = []){
         self::openDatabaseConnection();
         $statement = PDOController::$db->prepare($command);

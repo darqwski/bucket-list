@@ -9,6 +9,7 @@ const FormDataManager: React.FC<IFormDataManager> = ({ initialData = {}, childre
 	const setField = (name: string) => ({ target: { value } }: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
 		setFormData(data=>({ ...data, [name]: value }));
 	};
+	const clearForm = () => setFormData(initialData);
 
 	const addError = (message: string) => setErrorMessages((messages)=>[...messages, message]);
 	const clearErrors = () => setErrorMessages([]);
@@ -20,6 +21,7 @@ const FormDataManager: React.FC<IFormDataManager> = ({ initialData = {}, childre
 			setFormData,
 			addError,
 			clearErrors,
+			clearForm,
 			errorMessages
 		}}>
 			{children}
