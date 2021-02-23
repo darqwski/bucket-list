@@ -6,7 +6,12 @@ const ArticleItem = ({ item }) => {
 	return (
 		<a href={`article?id=${articleId}`}>
 			<article className="card short-article">
-				<div>Dodano {creationDate} przez {login}</div>
+				<div className="article-details">
+					<span>Dodano</span>
+					<span className="value"> {creationDate}</span>
+					<span>przez</span>
+					<span className="value">{login}</span>
+				</div>
 				<h3 className="title">{title}</h3>
 				<img className="preview-photo" src={previewPhoto} />
 				<p className="preview-credits">{previewCredits}</p>
