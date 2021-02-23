@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './comments.less';
 import SingleComment from './SingleComment';
 import CommentAddForm from './CommentAddForm';
@@ -10,8 +10,6 @@ interface IComments {
     articleId: string
 }
 
-
-
 const Comments: React.FC<IComments> = ({ articleId }) => {
 	const [page, setPage] = useState(0);
 	const [summarizedComments, setSummarizedComments] = useState<IComment[]>([]);
@@ -20,7 +18,7 @@ const Comments: React.FC<IComments> = ({ articleId }) => {
 		if(data && !loading){
 			setSummarizedComments([...summarizedComments, ...data]);
 		}
-	}, [data, loading])
+	}, [data, loading]);
 
 	return (
 		<div className="card container comments">

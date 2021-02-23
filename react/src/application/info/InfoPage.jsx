@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FrontPageWrapper from '../../application-components/frontpage-wrapper/FrontpageWrapper';
 import useAppRequest from '../../hooks/useAppRequest';
 import Loading from '../../components/loading/Loading';
-import * as Pages from './pages';
+import Pages from './pages';
 
 const infoPageName = (new URL(location.href)).searchParams.get('page');
 
@@ -12,7 +12,6 @@ const InfoPage = () => {
 	});
 	const [component, setComponent] = useState('');
 	useEffect(()=>{
-		console.log(data?.type, data?.content);
 		if(!(data?.type)){
 			return;
 		}
@@ -22,6 +21,7 @@ const InfoPage = () => {
 		if( data.type === 'jsx') {
 			setComponent(data.content);
 		}
+
 	}, [ data?.content, data?.type]);
 
 	return (
