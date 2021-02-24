@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArticleItem = ({ item }) => {
-	const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date, creationDate, login } = item ;
+	const { title,shortDescription, previewPhoto, previewCredits, articleId, cost, date, creationDate, login, comments, viewed } = item ;
 
 	return (
 		<a href={`article?id=${articleId}`}>
@@ -26,6 +26,12 @@ const ArticleItem = ({ item }) => {
 						<p className="cost">{cost}</p>
 					</div>
 				</div>
+				<p className="article-details">
+					<span>Wyświetlono</span>
+					<span className="value"> {viewed}</span>
+					<span>Komentarzy</span>
+					<span className="value">{comments}</span>
+				</p>
 			</article>
 		</a>
 	);

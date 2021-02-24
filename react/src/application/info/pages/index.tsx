@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import QuestionFormPage from './QuestionFormPage';
 import CookiesInformationPage from './CookiesInformationPage';
 

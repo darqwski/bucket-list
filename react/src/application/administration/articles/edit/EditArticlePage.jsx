@@ -70,7 +70,7 @@ EditArticlePage.propTypes = {};
 
 export default () => {
 	const { data, loading } = useAppRequest({
-		url: `/API/articles?id=${articleId}`
+		url: `/API/articles?id=${articleId}&without-view=1`
 	});
 	return loading ? <Loading/> : (
 		<FormDataManager initialData={data}>
