@@ -15,7 +15,7 @@ export interface IFormData {
  * @property {function} clearForm -  Clear form, useful after reseting form
  */
 export interface IFormDataContext {
-    setField(name: string): (event: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => void;
+    setField(name: string): (event: {target: { value : string}}) => void;
     formData: IFormData,
     setFormData: Dispatch<React.SetStateAction<IFormData>>;
     addError(error: string):void;

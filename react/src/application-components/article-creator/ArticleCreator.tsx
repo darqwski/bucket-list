@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ArticleCreatorRow from './ArticleCreatorRow';
 import { IArticleCreator, IArticleSection } from './types';
-// @ts-ignore
 import { useFormDataContext } from '../../context/form-data-manager/FormDataContext';
 import './article-creator.less';
 

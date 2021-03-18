@@ -6,7 +6,7 @@ export const useFormDataContext = () => useContext(FormDataContext);
 const FormDataManager: React.FC<IFormDataManager> = ({ initialData = {}, children }) => {
 	const [formData, setFormData] = useState<IFormData>(initialData);
 	const [errorMessages, setErrorMessages] = useState<string[]>([]);
-	const setField = (name: string) => ({ target: { value } }: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
+	const setField = (name: string) => ({ target: { value } }: { target: { value : string}}) => {
 		setFormData(data=>({ ...data, [name]: value }));
 	};
 	const clearForm = () => setFormData(initialData);

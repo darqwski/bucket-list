@@ -9,7 +9,7 @@ export const AppManager = ({ children, appData }) => {
 	const { serverData: { login, admin } } = window;
 	const isLogged = () => !!login;
 	const isAdmin = () => !!admin;
-	console.log(login)
+
 	return (
 		<AppContext.Provider value={{
 			isLogged, login, isAdmin, appData

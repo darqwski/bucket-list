@@ -1,8 +1,8 @@
-import React, { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { IFormDataContext } from './types';
 
 export const FormDataContext =createContext<IFormDataContext>({
-	setField: (name: string) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>  {
+	setField: (name: string) => (event) =>  {
 		console.log(name, event);
 	},
 	addError(error: string): void {
@@ -13,3 +13,5 @@ export const FormDataContext =createContext<IFormDataContext>({
 	errorMessages: [],formData: {},setFormData:(data)=> data,
 	clearForm(): void {}
 });
+
+export const useFormDataContext = (): IFormDataContext => useContext(FormDataContext);
