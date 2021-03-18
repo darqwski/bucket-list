@@ -72,6 +72,9 @@ export default () => {
 	const { data, loading } = useAppRequest({
 		url: `/API/articles?id=${articleId}&without-view=1`
 	});
+
+	console.log("DUPA")
+
 	return loading ? <Loading/> : (
 		<FormDataManager initialData={data}>
 			<EditArticlePage />
